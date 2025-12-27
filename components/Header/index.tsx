@@ -7,8 +7,8 @@ const Header = () => {
       <div className="grid grid-cols-12 h-20 px-4 items-center">
 
         {/* LOGO */}
-        <div className="col-span-3 flex justify-end">
-          <div className="p-3 rounded-full hover:bg-[#181919] cursor-pointer">
+        <div className="col-span-3  ml-30">
+          <div className="p-3 w-fit rounded-full hover:bg-[#181919] cursor-pointer">
             <BsTwitterX className="text-[40px]" />
           </div>
         </div>

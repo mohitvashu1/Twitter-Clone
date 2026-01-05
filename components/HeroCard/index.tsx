@@ -1,12 +1,13 @@
-"use client"; // Important: mark this as a client component
-
+"use client"; 
+import { useState } from "react";
 import { BsBell, BsBookmark, BsEnvelope } from "react-icons/bs";
 import React from "react";
 import { BiHash, BiHomeCircle, BiSearch, BiUser } from "react-icons/bi";
 import { CiCircleMore } from "react-icons/ci";
 import Link from "next/link";
 import FeedCard from "@/components/FeedCard";
-// import RightCard from "../Trending";
+import RightCard from "../Trending";
+import AuthCard from "../AuthCard";
 
 interface TwitterSidebarButton {
   title: string;
@@ -25,8 +26,10 @@ const sidebarMenuItems: TwitterSidebarButton[] = [
 ];
 
 const HeroCard: React.FC = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
-    <div className="grid grid-cols-12 h-screen">
+    <div className="grid grid-cols-12 h-screen">  
       
       {/* Sidebar */}
       <div className="col-span-2 sm:col-span-3 pt-2 flex justify-end sticky top-0 min-h-0">
@@ -69,11 +72,18 @@ const HeroCard: React.FC = () => {
       </div>
 
       {/* Right Section */}
-      <div className="hidden sm:block col-span-3 border-r border-gray-800 sticky top-0 min-h-0">
-        {/* <RightCard/> */}
+      <div className="hidden sm:block col-span-3 border-r border-gray-800 sticky top-0 min-h-0 h-screen">
+        {!isLoggedIn ? (
+        <AuthCard onLogin={() => setIsLoggedIn(false)} />
+      ) : (
+        <RightCard />
+      )}
       </div>
     </div>
   );
 };
 
 export default HeroCard;
+
+
+

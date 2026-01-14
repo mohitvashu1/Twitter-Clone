@@ -4,11 +4,11 @@
   "private": true,
   "license": "Mohit",
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"yarn run codegen\" \"next dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "codegen": "graphql-codegen --config codegen.ts --watch"
   },
   "dependencies": {
     "@apollo/client": "^4.0.12",
@@ -27,11 +27,13 @@
     "@graphql-codegen/client-preset": "^5.2.2",
     "@graphql-codegen/introspection": "5.0.0",
     "@graphql-codegen/typescript": "^5.0.7",
+    "@parcel/watcher": "^2.5.4",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "16.1.0",
     "tailwindcss": "^4",

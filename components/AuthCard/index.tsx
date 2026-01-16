@@ -1,7 +1,34 @@
-import { GoogleLogin } from "@react-oauth/google";
+import { graphqlClient } from "@/clients/api";
+import { verifyUserGoogleTokenQuery } from "@/graphql/query/user";
+import { CredentialResponse, GoogleLogin } from "@react-oauth/google";
+import { useCallback } from "react";
+import toast from "react-hot-toast";
 import { AiOutlineMail } from "react-icons/ai";
 
 const AuthCard = ({ onLogin }: { onLogin: () => void }) => {
+
+
+  const handleLoginWithGoogle =useCallback(
+    async (cred:CredentialResponse) =>{
+     const googleToken=cred.credential;
+
+     if(!googleToken) return toast.error(`Google token not found`);
+     
+     const {verifyGoogleToken} = await graphqlClient.request(
+
+     verifyUserGoogleTokenQuery,
+     {token: googleToken}
+
+     );
+     toast.success("Verified Success");
+     console.log(verifyGoogleToken);
+     
+    },
+    []
+  );
+
+
+
   return (
     <>
     <div className="border border-gray-700 rounded-2xl px-6 py-6 mx-6 mt-22 bg-black">
@@ -14,7 +41,7 @@ const AuthCard = ({ onLogin }: { onLogin: () => void }) => {
       {/* Google Login */}
       <div className="flex justify-center mb-5">
         <GoogleLogin
-          onSuccess={(cred) => console.log(cred)}
+          onSuccess={handleLoginWithGoogle}
           onError={() => console.log("Login Failed")}
         />
       </div>

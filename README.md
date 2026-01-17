@@ -1,44 +1,87 @@
-## Getting Started
+# Twitter(X.com) -Clone  (Full-Stack)
 
-First, run the development server:
+## A full-stack Twitter-like social media application built with Next.js (Frontend) and Node.js + GraphQL (Backend).
+### The project focuses on modern frontend practices, GraphQL-based APIs, authentication, and scalable backend architecture.
 
-```bash
-npm run dev
-# or
+## Screenshot:-
+<p align="center"> <img src="./client/public/Screenshot.png" width="700" /> </p>
+
+## **Tech Stack**
+### **Frontend**
+
+- Next.js 16
+- React 19
+- Apollo Client
+- GraphQL
+- Tailwind CSS
+- React Icons
+- Google OAuth
+- GraphQL Code Generator
+
+### **Backend**
+- Node.js
+- Express
+- Apollo Server (GraphQL)
+- Prisma ORM
+- PostgreSQL
+- JWT Authentication
+- TypeScript
+
+### Project Structure
+root/
+│
+├── frontend/
+│   ├── app / pages
+│   ├── components
+│   ├── graphql
+│   ├── codegen.ts
+│   ├── package.json
+│   └── tailwind.config.ts
+│
+├── backend/
+│   ├── src/
+│   │   ├── index.ts
+│   │   ├── graphql/
+│   │   ├── resolvers/
+│   │   └── services/
+│   ├── prisma/
+│   │   └── schema.prisma
+│   ├── package.json
+│   └── tsconfig.json
+│
+└── README.md
+
+## Features:-
+
+- User authentication using Google OAuth
+- JWT-based secure sessions
+- GraphQL API with Apollo Server
+- Prisma ORM with PostgreSQL
+- Real-time-ready architecture
+- Modern Twitter-style feed UI
+- GraphQL code generation for type safety
+- Scalable and clean project structure
+
+Frontend Setup
+cd frontend
+yarn install
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-//Codegen INIT
-$ yarn graphql-code-generator init
-yarn run v1.22.22
 
-    Welcome to GraphQL Code Generator!
-    Answer few questions and we will setup everything for you.
 
-? What type of application are you building?
-  Backend - API or server
-  Application built with Angular
-❯ Application built with React
-? What type of application are you building?
-  Backend - API or server
-  Application built with Angular
-  Application built with React
-? What type of application are you building?
-  Backend - API or server
-  Application built with Angular
-  Application built with React
-? What type of application are you building?
-  Backend - API or server
-  Application built with Angular
-  Application built with React
-✔ What type of application are you building? Application using graphql-request
-✔ Where is your schema?: (path or url) http://localhost:3001/graphql
-✔ Where are your operations and fragments?: **/*.{tsx,ts}
-✔ Where to write the output: gql/
-✔ Do you want to generate an introspection file? Yes
-✔ How to name the config file? codegen.ts
-✔ What script in package.json should run the codegen? codegen
-Fetching latest versions of selected plugins...
+## Frontend will run on:
+
+http://localhost:3000
+
+Available Scripts
+
+yarn dev – Start development server
+
+yarn build – Build for production
+
+yarn start – Run production build
+
+yarn lint – Lint code
+
+yarn codegen – Generate GraphQL types
+
+For Backend - https://github.com/mohitvashu1/M-server

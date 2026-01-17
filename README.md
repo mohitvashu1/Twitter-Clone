@@ -4,7 +4,7 @@
 ### The project focuses on modern frontend practices, GraphQL-based APIs, authentication, and scalable backend architecture.
 
 ## Screenshot:-
-<p align="center"> <img src="./client/public/Screenshot.png" width="700" /> </p>
+<p align="center"> <img src="./public/Screenshot.png" width="700" /> </p>
 
 ## **Tech Stack**
 ### **Frontend**
@@ -38,6 +38,7 @@ root/
 │   ├── package.json
 │   └── tailwind.config.ts
 │
+
 ├── backend/
 │   ├── src/
 │   │   ├── index.ts

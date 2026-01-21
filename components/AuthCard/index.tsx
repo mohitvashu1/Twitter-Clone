@@ -1,13 +1,14 @@
 import { graphqlClient } from "@/clients/api";
 import { verifyUserGoogleTokenQuery } from "@/graphql/query/user";
 import { CredentialResponse, GoogleLogin } from "@react-oauth/google";
+import { useQueryClient } from "@tanstack/react-query";
 import { useCallback } from "react";
 import toast from "react-hot-toast";
 import { AiOutlineMail } from "react-icons/ai";
 
 const AuthCard = ({ onLogin }: { onLogin: () => void }) => {
 
-
+  const queryClient =useQueryClient();
   const handleLoginWithGoogle =useCallback(
     async (cred:CredentialResponse) =>{
      const googleToken=cred.credential;
@@ -25,9 +26,12 @@ const AuthCard = ({ onLogin }: { onLogin: () => void }) => {
 
      if(verifyGoogleToken)
         window.localStorage.setItem("_M_token",verifyGoogleToken);
+
+
+     await queryClient.invalidateQueries({queryKey: ["current-user"]});
      
     },
-    []
+    [queryClient]
   );
 
 

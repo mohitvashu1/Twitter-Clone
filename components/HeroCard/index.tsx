@@ -28,9 +28,9 @@ const sidebarMenuItems: TwitterSidebarButton[] = [
 ];
 
 const HeroCard: React.FC = () => {
-  const { user, isLoading } = useCurrentUser();
+  const { user } = useCurrentUser();
 
-  if (isLoading) return null; // or loader / skeleton
+  
 
   return (
     <div className="grid grid-cols-12 h-screen">
@@ -70,10 +70,11 @@ const HeroCard: React.FC = () => {
 
       {/* Right Section */}
       <div className="hidden sm:block col-span-3 sticky top-0 h-screen">
-        {!user ? <AuthCard onLogin={() => {}} /> : <RightCard user={user} />}
+        {user && <RightCard user={user} />}
       </div>
     </div>
   );
 };
 
 export default HeroCard;
+ 

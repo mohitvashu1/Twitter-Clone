@@ -10,6 +10,7 @@ import FeedCard from "@/components/FeedCard";
 import RightCard from "../Trending";
 import AuthCard from "../AuthCard";
 import { useCurrentUser } from "@/hooks/user";
+import CreatePost from "../CreatePost";
 
 interface TwitterSidebarButton {
   title: string;
@@ -62,8 +63,7 @@ const HeroCard: React.FC = () => {
 
       {/* Feed */}
       <div className="col-span-10 sm:col-span-6 border-x border-gray-600 overflow-y-auto">
-        <FeedCard />
-        <FeedCard />
+        <CreatePost/>
         <FeedCard />
         <FeedCard />
       </div>

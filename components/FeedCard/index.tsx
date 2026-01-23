@@ -38,7 +38,9 @@ const tweets = [
 const FeedCard: React.FC = () => {
   return (
     <>
-      {tweets.map((tweet) => (
+    
+      <div>
+        {tweets.map((tweet) => (
         <div
           key={tweet.id}
           className="border border-r-0 border-l-0 border-b-0 border-gray-600 p-5 hover:bg-[#181919] transition-all cursor-pointer"
@@ -111,6 +113,8 @@ const FeedCard: React.FC = () => {
           </div>
         </div>
       ))}
+      </div>
+      
     </>
   );
 };

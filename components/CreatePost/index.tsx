@@ -17,7 +17,7 @@ const CreatePost: React.FC = () => {
   },[])
   return (
     <>
-    <div className="border border-r-0 border-l-0 border-b-0 border-gray-600 p-5 ">
+    <div className="border  border-gray-600 p-5 ">
       <div className="grid grid-cols-12 gap-3">
         <div className="col col-span-1"> 
              {user?.profileImageURL &&

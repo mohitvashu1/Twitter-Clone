@@ -11,6 +11,8 @@ import RightCard from "../Trending";
 import AuthCard from "../AuthCard";
 import { useCurrentUser } from "@/hooks/user";
 import CreatePost from "../CreatePost";
+import { useGetAllTweets } from "@/hooks/tweet";
+import { Tweet } from "@/gql/graphql";
 
 interface TwitterSidebarButton {
   title: string;
@@ -30,6 +32,7 @@ const sidebarMenuItems: TwitterSidebarButton[] = [
 
 const HeroCard: React.FC = () => {
   const { user } = useCurrentUser();
+  const {tweets=[]}=useGetAllTweets()
 
   
 
@@ -64,8 +67,10 @@ const HeroCard: React.FC = () => {
       {/* Feed */}
       <div className="col-span-10 sm:col-span-6 border-x border-gray-600 overflow-y-auto">
         <CreatePost/>
-        <FeedCard />
-        <FeedCard />
+        {
+          tweets?.map(tweet => <FeedCard key={tweet?.id} data={tweet as Tweet}/>)
+        }
+        
       </div>
 
       {/* Right Section */}

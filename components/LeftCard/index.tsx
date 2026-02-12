@@ -7,16 +7,17 @@ import Link from "next/link";
 interface TwitterSidebarButton {
   title: string;
   icon: React.ReactNode;
+  link?: string;
 }
 
 const sidebarMenuItems: TwitterSidebarButton[] = [
-  { title: "Home", icon: <BiHomeCircle /> },
+  { title: "Home", icon: <BiHomeCircle />, link:"/" },
   { title: "Search", icon: <BiSearch /> },
   { title: "Explore", icon: <BiHash /> },
   { title: "Notifications", icon: <BsBell /> },
   { title: "Messages", icon: <BsEnvelope /> },
   { title: "Bookmarks", icon: <BsBookmark /> },
-  { title: "Profile", icon: <BiUser /> },
+  { title: "Profile", icon: <BiUser />, link:"/profile"},
   { title: "More", icon: <CiCircleMore /> },
 ];
 
@@ -31,7 +32,7 @@ function Sidebar() {
             {sidebarMenuItems.map((item) => (
               <li key={item.title}>
                 <Link
-                  href="#"
+                  href={item.link || "#"}
                   className="flex items-center gap-4 px-4 py-3 rounded-full hover:bg-[#181919] transition"
                 >
                   <span className="text-2xl">{item.icon}</span>

@@ -1,3 +1,4 @@
+import Profie from "@/card/ProfileCard";
 import Header from "@/components/Header";
 import Sidebar from "@/components/LeftCard";
 import RightCard from "@/components/RightCard";
@@ -18,7 +19,7 @@ const UserProfilePage : NextPage=()=>{
 
                     {/* Profile */}
                          <div className="col-span-10 sm:col-span-6 border-x border-gray-600 h-screen min-h-0 overflow-y-auto ">
-
+                             <Profie/>
                          </div>
                        
                      {/* Right Section */}

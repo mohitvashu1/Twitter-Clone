@@ -4,6 +4,7 @@ import { FiLogOut } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const TrendItem = ({
   category,
@@ -62,7 +63,10 @@ const RightCard: React.FC<RightCardProps> = ({ user }) => {
       <div className="relative mt-6 p-4 mx-6 border border-gray-700 rounded-xl flex items-center justify-between">
         <div className="flex items-center gap-3">
           {user.profileImageURL ? (
-            <Image src={user.profileImageURL} alt="#" height={40} width={40} className="rounded-full object-cover"/>
+            <Link href={"/profile"}>
+               <Image src={user.profileImageURL} alt="#" height={40} width={40} className="rounded-full object-cover"/>
+            </Link>
+           
             // <img
             //   src={user?.profileImageURL}
             //   alt="profile"

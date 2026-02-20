@@ -27,8 +27,8 @@ import React from 'react'
 function Sidebar() {
   return (
     <div>
-         <div className="flex flex-col items-center w-full max-w-65 pt-2 justify-end sticky top-0">
-          <ul className="mt-4 w-fit">
+         <div className="flex flex-col items-center w-full max-w-65 pt-2 ml-8 justify-end sticky top-0">
+          <ul className="mt-4 w-fit ml-5">
             {sidebarMenuItems.map((item) => (
               <li key={item.title}>
                 <Link
@@ -52,4 +52,4 @@ function Sidebar() {
   )
 }
 
-export default Sidebar
+export default Sidebar ;

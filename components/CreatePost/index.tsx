@@ -1,6 +1,7 @@
 import { useCreateTweet } from "@/hooks/tweet";
 import { useCurrentUser } from "@/hooks/user";
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useState } from "react";
 import { CiImageOn } from "react-icons/ci";
 
@@ -32,10 +33,12 @@ const CreatePost: React.FC = () => {
       <div className="grid grid-cols-12 gap-3">
         <div className="col col-span-1"> 
              {user?.profileImageURL &&
-         <Image src={user.profileImageURL}
+         
+         <Link href={"/profile"}> <Image src={user.profileImageURL}
          alt="#" height={ 30} width={30}
       className="rounded-full object-cover"
-               />}
+               /></Link>
+         }
         </div>
         <div className="col col-span-11">
             <textarea 

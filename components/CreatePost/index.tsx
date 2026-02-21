@@ -34,7 +34,7 @@ const CreatePost: React.FC = () => {
         <div className="col col-span-1"> 
              {user?.profileImageURL &&
          
-         <Link href={"/profile"}> <Image src={user.profileImageURL}
+         <Link href={`/${user?.id}`}> <Image src={user.profileImageURL}
          alt="#" height={ 30} width={30}
       className="rounded-full object-cover"
                /></Link>

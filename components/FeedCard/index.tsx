@@ -1,5 +1,7 @@
 import { Tweet } from "@/gql/graphql";
+import { useCurrentUser } from "@/hooks/user";
 import Image from "next/image";
+
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BiMessageRounded, BiUpload } from "react-icons/bi";
@@ -10,11 +12,12 @@ interface FeedCardProps {
 }
 
 const FeedCard: React.FC<FeedCardProps> = ({ data }) => {
+  
   return (
     <div className="px-4 py-3 border border-gray-800 hover:bg-[#080808] transition cursor-pointer">
       <div className="grid grid-cols-[48px_1fr] gap-3">
         {/* Avatar */}
-        <Image
+       <Image
           src={data.author?.profileImageURL || "/avatar.png"}
           alt="user-avatar"
           height={48}

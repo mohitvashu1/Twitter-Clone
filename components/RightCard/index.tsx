@@ -63,7 +63,7 @@ const RightCard: React.FC<RightCardProps> = ({ user }) => {
       <div className="relative mt-6 p-4 mx-6 border border-gray-700 rounded-xl flex items-center justify-between">
         <div className="flex items-center gap-3">
           {user.profileImageURL ? (
-            <Link href={"/profile"}>
+            <Link href={`/${user?.id}`}>
                <Image src={user.profileImageURL} alt="#" height={40} width={40} className="rounded-full object-cover"/>
             </Link>
            

@@ -3,6 +3,8 @@ import { BsBell, BsBookmark, BsEnvelope } from "react-icons/bs";
 import { BiHash, BiHomeCircle, BiSearch, BiUser } from "react-icons/bi";
 import { CiCircleMore } from "react-icons/ci";
 import Link from "next/link";
+import React, { useMemo } from 'react'
+import { useCurrentUser } from "@/hooks/user";
 
 interface TwitterSidebarButton {
   title: string;
@@ -10,21 +12,36 @@ interface TwitterSidebarButton {
   link?: string;
 }
 
-const sidebarMenuItems: TwitterSidebarButton[] = [
-  { title: "Home", icon: <BiHomeCircle />, link:"/" },
+// const sidebarMenuItems: TwitterSidebarButton[] = [
+//   { title: "Home", icon: <BiHomeCircle />, link:"/" },
+//   { title: "Search", icon: <BiSearch /> },
+//   { title: "Explore", icon: <BiHash /> },
+//   { title: "Notifications", icon: <BsBell /> },
+//   { title: "Messages", icon: <BsEnvelope /> },
+//   { title: "Bookmarks", icon: <BsBookmark /> },
+//   { title: "Profile", icon: <BiUser />, link:"/profile"},
+//   { title: "More", icon: <CiCircleMore /> },
+// ];
+
+
+
+
+function Sidebar() {
+  const {user}=useCurrentUser();
+  const sidebarMenuItems: TwitterSidebarButton[] = useMemo(
+    () => [
+       { title: "Home", icon: <BiHomeCircle />, link:"/" },
   { title: "Search", icon: <BiSearch /> },
   { title: "Explore", icon: <BiHash /> },
   { title: "Notifications", icon: <BsBell /> },
   { title: "Messages", icon: <BsEnvelope /> },
   { title: "Bookmarks", icon: <BsBookmark /> },
-  { title: "Profile", icon: <BiUser />, link:"/profile"},
+  { title: "Profile", icon: <BiUser />, link:`/${user?.id}`},
   { title: "More", icon: <CiCircleMore /> },
-];
 
-
-import React from 'react'
-
-function Sidebar() {
+    ],
+    [user?.id]
+  );
   return (
     <div>
          <div className="flex flex-col items-center w-full max-w-65 pt-2 ml-8 justify-end sticky top-0">

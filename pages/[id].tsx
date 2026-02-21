@@ -4,9 +4,12 @@ import Sidebar from "@/components/LeftCard";
 import RightCard from "@/components/RightCard";
 import { useCurrentUser } from "@/hooks/user";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 
 const UserProfilePage : NextPage=()=>{
     const { user } = useCurrentUser();
+    const router =useRouter()
+    console.log(router.query);
     return(
         <div>
             <Header/>

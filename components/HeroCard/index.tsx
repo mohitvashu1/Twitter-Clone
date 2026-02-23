@@ -8,11 +8,17 @@ import CreatePost from "../CreatePost";
 import { useGetAllTweets } from "@/hooks/tweet";
 import { Tweet } from "@/gql/graphql";
 import Sidebar from "../LeftCard";
+import { GetServerSideProps } from "next";
+import { graphqlClient } from "@/clients/api";
+import { getAllTweetsQuery } from "@/graphql/query/tweet";
 
+interface HomeProps {
+  tweets?: Tweet[];
+}
 
-const HeroCard: React.FC = () => {
+export default function HeroCard(props: HomeProps) {
 const { user } = useCurrentUser();
-  const {tweets=[]}=useGetAllTweets()
+ const { tweets = props.tweets as Tweet[] } = useGetAllTweets();
 
   
 
@@ -41,5 +47,14 @@ const { user } = useCurrentUser();
   );
 };
 
-export default HeroCard;
+export const getServerSideProps: GetServerSideProps<HomeProps> = async (
+  context
+) => {
+  const allTweets = await graphqlClient.request(getAllTweetsQuery);
+  return {
+    props: {
+      tweets: allTweets.getAllTweets as Tweet[],
+    },
+  };
+};
  

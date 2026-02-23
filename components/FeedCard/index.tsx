@@ -1,6 +1,7 @@
 import { Tweet } from "@/gql/graphql";
 import { useCurrentUser } from "@/hooks/user";
 import Image from "next/image";
+import Link from "next/link";
 
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -12,26 +13,26 @@ interface FeedCardProps {
 }
 
 const FeedCard: React.FC<FeedCardProps> = ({ data }) => {
-  
+
   return (
     <div className="px-4 py-3 border border-gray-800 hover:bg-[#080808] transition cursor-pointer">
       <div className="grid grid-cols-[48px_1fr] gap-3">
         {/* Avatar */}
-       <Image
+       <Link href={`/${data.author?.id}`}><Image
           src={data.author?.profileImageURL || "/avatar.png"}
           alt="user-avatar"
           height={48}
           width={48}
           className="rounded-full"
-        />
+        /></Link>
 
         {/* Content */}
         <div>
           {/* Header */}
           <div className="flex items-center gap-2 text-sm">
-            <h5 className="font-semibold">
+            <Link href={`/${data.author?.id}`}><h5 className="font-semibold">
               {data.author?.firstName} {data.author?.lastName}
-            </h5>
+            </h5></Link>  
             <span className="text-gray-500">
               @{data.author?.firstName?.toLowerCase()}
             </span>

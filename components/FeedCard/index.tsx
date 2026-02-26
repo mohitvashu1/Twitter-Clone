@@ -52,7 +52,7 @@ const FeedCard: React.FC<FeedCardProps> = ({ data }) => {
                 alt="tweet-image"
                 width={600}
                 height={350}
-                className="object-cover max-h-105"
+                className="object-cover w-full max-h-105"
               />
             </div>
           )}

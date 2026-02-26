@@ -5,6 +5,7 @@ export const createTweetMutations=graphql(`#graphql
     createTweet(payload: $payload) {
       id
       content
+      imageURL
       author {
         id
         firstName

@@ -93,7 +93,7 @@ const CreatePost: React.FC = () => {
                   src={imageBase64}
                   alt="Preview"
                   height={300}
-                  width={400}
+                  width={300}
                   className="rounded-lg object-cover"
                 />
               </div>
